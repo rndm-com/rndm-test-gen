@@ -17,7 +17,7 @@ tbc
 ### From NPM
 
 ```sh
-npm install --save-dev rndm-test-gen
+npm install --save-dev @rndm/test-gen
 ```
  
 Inside your package.json file, add or amend the test script:
@@ -60,10 +60,10 @@ Copy and paste these into the mocha.opts file you created.
  
 #### polyfill.js
  
-This file allows us to make use of Babel to polyfill the rndm-test-gen on the run (as it is ignored by the babel transpiler by default). In this file, simply add the one line as below:
+This file allows us to make use of Babel to polyfill the @rndm/test-gen on the run (as it is ignored by the babel transpiler by default). In this file, simply add the one line as below:
 
 ```javascript
-require('babel-node-modules')(['rndm-test-gen']);
+require('babel-node-modules')(['@rndm/test-gen']);
 ```
 
 #### index.js
@@ -72,7 +72,7 @@ The index file is the one that will run all the underlying code for generating s
 
 ```javascript
 import './polyfill';
-import { generate } from 'rndm-test-gen';
+import { generate } from '@rndm/test-gen';
 generate();
 ```
  
@@ -292,7 +292,7 @@ You will see this continuation of names throughout the output files so as to kee
 A spec file in its simplest form will contain only 4 lines:
 
 ```javascript
-import { describe } from 'rndm-test-gen'; // The importing of the test generator code
+import { describe } from '@rndm/test-gen'; // The importing of the test generator code
 import generated from '../_rtg_/_tests/index'; // The path to the corresponding serialised tests
 const tests = generated; // A reassignment (we will cover this in a later section)
 describe(tests); // the running of the tests
