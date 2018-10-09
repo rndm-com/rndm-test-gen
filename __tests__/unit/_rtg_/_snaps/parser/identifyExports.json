@@ -1,0 +1,24 @@
+{
+  "splitPath.default with [] is expected to.matchSnapshot": "",
+  "preES6Export.default with [] is expected to.matchSnapshot": {
+    "default": {
+      "type": ""
+    }
+  },
+  "defaultExport.default with [] is expected to.matchSnapshot": {
+    "default": {
+      "type": ""
+    }
+  },
+  "constExport.default with [] is expected to.matchSnapshot": {
+    "": {
+      "type": ""
+    }
+  },
+  "functionExport.default with [] is expected to.matchSnapshot": {
+    "": {}
+  },
+  "structuredExport.default with [] is expected to.matchSnapshot": {},
+  "postES6Export.default with [] is expected to.matchSnapshot": {},
+  "default.default with [] is expected to.matchSnapshot": {}
+}

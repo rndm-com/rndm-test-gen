@@ -1,0 +1,32 @@
+{
+  "project": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "src": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "base": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "test": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "snaps": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "generated": [
+    {
+      "returnDefault": false
+    }
+  ]
+}

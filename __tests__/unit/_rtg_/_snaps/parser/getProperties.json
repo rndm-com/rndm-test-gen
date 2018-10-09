@@ -1,0 +1,8 @@
+{
+  "default.default with [] is expected to.matchSnapshot": {
+    "type": "class",
+    "parent": "Component",
+    "statics": {},
+    "prototypes": {}
+  }
+}

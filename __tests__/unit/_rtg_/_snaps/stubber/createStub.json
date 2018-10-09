@@ -1,0 +1,10 @@
+{
+  "default.default with [] is expected to.matchSnapshot": {
+    "displayName": {
+      "type": "STATIC"
+    },
+    "name": {
+      "type": "DEFINED"
+    }
+  }
+}

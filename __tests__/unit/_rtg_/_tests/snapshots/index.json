@@ -1,0 +1,20 @@
+{
+  "removeRedundant": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "startTracking": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "trackTestRun": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ]
+}

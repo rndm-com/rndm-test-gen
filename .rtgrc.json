@@ -1,0 +1,14 @@
+{
+  "directory": "__tests__/unit",
+  "relative": true,
+  "ignoreNodes": [],
+  "exclude": [
+    "options/index"
+  ],
+  "map": [
+    {
+      "find": "decircular",
+      "to": "utils/decircular"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{
+  "default.default with [] is expected to.matchSnapshot": "\nimport generated from '';\nconst tests = generated;\ndescribe(tests);\n"
+}

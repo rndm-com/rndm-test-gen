@@ -1,0 +1,19 @@
+{
+  "createFile": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "createNewSnapshot": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "default": [
+    {
+      "args": []
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "@rndm/test-gen",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "author": "RNDM",
+  "license": "Apache-2.0",
+  "description": "A test generation too for removing boiler plate unit test writing.",
+  "homepage": "https://github.com/rndm-com/rndm-test-gen#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rndm-com/rndm-test-gen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rndm-com/rndm-test-gen/issues"
+  },
+  "scripts": {
+    "test": "mocha \"./__tests__/unit/**/*.spec.js\" --opts ./__tests__/unit/_setup/mocha.opts",
+    "cover": "nyc --check-coverage npm run test",
+    "lint": "node_modules/.bin/eslint src"
+  },
+  "dependencies": {
+    "fs-extra": "^6.0.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "@rndm/utils": "0.1.0"
+  },
+  "devDependencies": {
+    "babel-node-modules": "0.0.1",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "colors": "^1.1.2",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "mocha": "^5.0.5",
+    "mocha-parallel-tests": "^2.0.0-alpha.2",
+    "nyc": "^11.3.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.1.2",
+    "sinon-chai": "^2.14.0"
+  },
+  "nyc": {
+    "lines": 70,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.flow.js",
+      "flow-typed",
+      "options/index"
+    ],
+    "require": [
+      "babel-core/register"
+    ],
+    "all": true,
+    "sourceMap": false,
+    "instrument": false
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "splitPath": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "preES6Export": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "defaultExport": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "constExport": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "functionExport": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "structuredExport": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "postES6Export": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "default": [
+    {
+      "args": []
+    }
+  ]
+}
