@@ -31,7 +31,7 @@ const createFileIfNotExist = (path, file, input) => {
   if (!fs.existsSync(filePath)) return createFile({ filePath, key, value });
   const data = JSON.parse(fs.readFileSync(filePath));
   const current = data[key];
-  return current || createFile({ data, filePath, key, value });
+  return current ? { value: current } : createFile({ data, filePath, key, value });
 };
 
 export default createFileIfNotExist;
