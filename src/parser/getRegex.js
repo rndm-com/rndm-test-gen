@@ -16,10 +16,14 @@ const regex = `((export (${search})(.*?)(.*))|(module.exports = (.*?);))`;
 
 const getRegex = (file) => {
   if (typeof file !== 'string' || !fs.existsSync(file)) return {};
-  const contents = fs.readFileSync(file).toString();
-  const matches = contents.match(new RegExp(regex, 'g'));
-  if (!matches) return {};
-  return matches.map(match => identifyExports(match, contents)).reduce((o, i) => ({...o, ...i}), {});
+  try {
+    const contents = fs.readFileSync((fs.statSync(file).isDirectory()) ? `${file}/index.js` : file).toString();
+    const matches = contents.match(new RegExp(regex, 'g'));
+    if (!matches) return {};
+    return matches.map(match => identifyExports(match, contents)).reduce((o, i) => ({...o, ...i}), {});
+  } catch (_) {
+    return {};
+  }
 };
 
 export default getRegex;

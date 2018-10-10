@@ -10,7 +10,17 @@ So with one simple command (npm run cover), you can go from a position of no tes
  
 ## Requirements
  
-tbc
+RNDM Test Generator has the following dev dependencies:
+
+- babel-node-modules
+- chai
+- chai-as-promised
+- mocha
+- mocha-parallel-tests
+- nyc
+- proxyquire
+- sinon
+- sinon-chai
  
 ## Installation
  
