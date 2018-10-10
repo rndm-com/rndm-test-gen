@@ -15,7 +15,6 @@ const itemsToTests = ({ statics = {}, prototypes = {}, ...test } = {}, returnDef
             args: ['class', 'function'].includes(prototypes[key].type) ? [] : undefined,
           },
         },
-        stubType: 'CLASS',
       }, returnDefault)),
     ])
   );

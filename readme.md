@@ -466,15 +466,7 @@ Used when you want to differentiate between exports in the file (should a file c
 **Type**: Boolean
 
 **Default Value**: false
- 
-#### Options: stubType
- 
-(Deprecating soon) Used to define if a stub is a type of CLASS or something else
- 
-**Type**: String
 
-**Default Value**: undefined
- 
 #### Options: it
  
 An optional way of passing in a standard it function test.

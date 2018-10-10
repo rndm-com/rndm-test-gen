@@ -1,12 +1,23 @@
 import { get } from 'lodash';
 
-const getOutput = ({ sut, path = 'default', args, stubType } = {}) => {
+const getOutput = ({ sut, path = 'default', args } = {}) => {
   const Subject = ((path === 'default' || !path) ? sut : get(sut, path));
   if (Array.isArray(args)) {
-    return stubType === 'CLASS' ? new Subject(...args) : Subject(...args);
+    try {
+      return new Subject(...args)
+    } catch (_) {
+      return Subject(...args);
+    }
   } else if (typeof args === 'object') {
     const { current, next } = args;
-    return getOutput({ sut: stubType === 'CLASS' ? new Subject(...current) : Subject(...current), ...next });
+    let sut;
+
+    try {
+      sut = new Subject(...current)
+    } catch (_) {
+      sut = Subject(...current);
+    }
+    return getOutput({ sut, ...next });
   }
   return Subject;
 };
