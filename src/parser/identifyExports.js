@@ -25,7 +25,7 @@ export const defaultExport = (trimmed = '', contents = '') => {
 };
 
 export const constExport = (trimmed = '', contents = '') => {
-  const key = splitPath(splitPath(trimmed, 'module.exports = ', '1'), ' ');
+  const key = splitPath(splitPath(trimmed, 'export const ', '1'), ' ');
   const type = getType(key, contents);
   return {
     [key]: { type },
@@ -33,7 +33,7 @@ export const constExport = (trimmed = '', contents = '') => {
 };
 
 export const functionExport = (trimmed = '') => {
-  const key = splitPath(splitPath(splitPath(trimmed, 'module.exports = ', '1'), ' '), '(');
+  const key = splitPath(splitPath(splitPath(trimmed, 'export function ', '1'), ' '), '(');
   return {
     [key]: { type: TYPES.FUNCTION },
   };
