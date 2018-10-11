@@ -3,7 +3,11 @@ import { src } from '../utils/paths';
 const getMapped = ({ to } = {}) => {
   if (!to) return;
   const path = `${src}/${to}`;
-  return require(path);
+  const required = require(path);
+  return {
+    ...required,
+    ...required.default,
+  };
 };
 
 export default getMapped;

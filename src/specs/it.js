@@ -1,4 +1,4 @@
-import { noop } from 'lodash';
+import { noop, merge } from 'lodash';
 import execute from './utils/execute';
 import describer from './utils/describer';
 import stub from './utils/stub';
@@ -24,7 +24,7 @@ const it = (fn = noop, {
 
   const executable = it || (() => {
     const importedStubs = stubber(src);
-    const sut = stub({ from: src, stubs: { ...importedStubs, ...stubs }, returnDefault });
+    const sut = stub({ from: src, stubs: merge({}, importedStubs, stubs), returnDefault });
     const output = getOutput({ sut: key === 'default' ? sut : sut[key], args, path });
     verify({ src, output, expected, expectation, description });
   });
