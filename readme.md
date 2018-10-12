@@ -453,12 +453,182 @@ An array of arguments that can be passed into either a function or a class when 
  
 #### Options: stubs
  
-An Object defined the stubbed classes you want to provide and the output you want to return for the stubbed properties.
- 
-**Type**: Object
+An Object defined the stubbed classes you want to provide and the output you want to return for the stubbed properties. Stubs are available at each of the main levels of the tests. These can be set as below:
 
-**Default Value**: {}
- 
+##### Global Stubs
+
+You are able to overwrite the automated stubs by providing values to a global parameter called stubs. In order to do this cleanly, it is a good idea to create a file or suite of files for your stubs then import this into your setup file.
+
+It should be noted here that it is possible from file leve to test level stubs to also stub out paths to relative imported files as well as imported node modules, i.e.:
+
+**Node Module**: 'my-module';
+**Relative File**: './my-module'; (the relativity is based on the relativity to the source file and not the test file)
+
+**Example**
+
+```javascript
+global.stubs = {
+  'name-of-package-to-stub': {
+    stubKey: 'stubValue',
+  },
+};
+```
+
+##### File-private Stubs
+
+File private stubs are declared inside the file you wish to use them within. The can then be passed into the test as the second parameter.
+
+**Example**
+
+```javascript
+const stubs = {
+  'name-of-package-to-stub': {
+    stubKey: 'stubValue',
+  },
+};
+
+const tests = ...;
+describe(tests, stubs);
+
+```
+
+##### Describe Stubs
+
+Describe stubs will be used within the context of the tests that are being run. This is useful where multiple describes are run within the same file. In this isntance, they are wrapped within the '@options' special key, that is excluded from the test contexts.
+
+**Example**
+
+```javascript
+const tests = {
+  '@options': {
+    stubs: {
+      'name-of-package-to-stub': {
+        stubKey: 'stubValue',
+      },
+    },
+  },
+  default: [
+    {}
+  ]
+};
+describe(tests);
+
+```
+
+##### Context Stubs
+
+Context stubs follow a similar pattern to describe stubs, and will be used for all tests within the context. However, when making use of these, you will need to amend the structure of the context from an array to an object, and wrap the tests with 'tests' key.
+
+**Example**
+
+```javascript
+const tests = {
+  default: {
+    '@options': {
+      stubs: {
+        'name-of-package-to-stub': {
+          stubKey: 'stubValue',
+        },
+      },
+    },
+    tests: [
+      {},
+    ],
+  },
+};
+describe(tests);
+
+```
+
+_**Note**: In the future these @option objects will be used to pass other contextual paramters across. Currently, one other parameter is available 'only': true, which will limit the test running to any context that includes the only option._
+
+##### Test Stubs
+
+Test stubs allow you to stub out packages and files only for the duration of the test you are running. These are included as a direct paramter inside the test, as with otehr options discussed here.
+
+**Example**
+
+```javascript
+const tests = {
+  default: [
+    {
+      stubs: {
+        'name-of-package-to-stub': {
+          stubKey: 'stubValue',
+        },
+      },
+    },
+  ],
+};
+describe(tests);
+
+```
+
+##### <span style="color:red">IMPORTANT</span>
+
+Stubs are hierarchical and non-destructive. This means that they follow a cascading merge order, but do not remove stubs that are not included in the lower levels.
+
+**Example**
+
+Given the below objects:
+
+```javascript
+const autoStubs = {
+  a: {
+    b: true,
+  },
+};
+
+const globalStubs = {
+  b: {
+    b: true,
+  },
+};
+
+const fileStubs = {
+  a: {
+    a: true,
+    b: false,
+  },
+};
+
+const describeStubs = {
+  a: {
+    a: false,
+  },
+};
+
+const contextStubs = {
+  c: {
+    a: true,
+  },
+};
+
+const testStubs = {
+  c: {
+    a: false,
+  },
+};
+
+```
+
+We will end up with the following stub object that will be processed by the framework:
+
+```javascript
+const stubs = {
+  a: {
+    a: false,
+    b: false,
+  },
+  b: {
+    b: true,
+  },
+  c: {
+    a: false,
+  },
+};
+```
+
 #### Options: returnDefault
  
 Used when you want to differentiate between exports in the file (should a file contain more than one export)

@@ -18,13 +18,16 @@ const it = (fn = noop, {
     it,
     description: customDescription,
   } = {},
+  contextStubs = {},
   src,
 } = {}) => {
-  const description = customDescription || describer({ path: [key, path].filter(Boolean).join('.'), expected, expectation, args, stubs });
+  const customStubs = merge({}, contextStubs, stubs);
+  const description = customDescription || describer({ path: [key, path].filter(Boolean).join('.'), expected, expectation, args, stubs: customStubs });
 
   const executable = it || (() => {
     const importedStubs = stubber(src);
-    const sut = stub({ from: src, stubs: merge({}, importedStubs, stubs), returnDefault });
+    const fullStubs = merge({}, importedStubs, global.stubs, customStubs);
+    const sut = stub({ from: src, stubs: fullStubs, returnDefault });
     const output = getOutput({ sut: key === 'default' ? sut : sut[key], args, path });
     verify({ src, output, expected, expectation, description });
   });
