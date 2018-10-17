@@ -40,7 +40,7 @@ const incrementStat = (key, increment = 1) => {
 };
 
 const sendPlatform = () => {
-  si.osInfo(data => send('platform', data))
+  si.osInfo().then(data => send('platform', data)).catch(() => {})
 };
 
 const sendStats = () => {

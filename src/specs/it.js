@@ -5,6 +5,7 @@ import stub from './utils/stub';
 import stubber from '../stubber';
 import getOutput from './utils/getOutput';
 import verify from './utils/verify';
+import { incrementStat } from '../stats';
 
 const it = (fn = noop, {
   key,
@@ -21,6 +22,7 @@ const it = (fn = noop, {
   contextStubs = {},
   src,
 } = {}) => {
+  incrementStat('its');
   const customStubs = merge({}, contextStubs, stubs);
   const description = customDescription || describer({ path: [key, path].filter(Boolean).join('.'), expected, expectation, args, stubs: customStubs });
 

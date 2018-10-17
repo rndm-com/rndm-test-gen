@@ -1,8 +1,10 @@
 import { noop, merge } from 'lodash';
 import it from './it';
 import execute from './utils/execute';
+import { incrementStat } from '../stats';
 
 const context = (fn = noop, key = '', input = [], contextStubs, src) => {
+  incrementStat('contexts');
   const executable = typeof input === 'function' ? input : () => {
     const tests = input.tests || input;
     return (

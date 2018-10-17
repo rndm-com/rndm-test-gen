@@ -3,6 +3,7 @@ import caller from '../utils/caller';
 import execute from './utils/execute';
 import context from './context';
 import { test } from '../utils/paths';
+import { incrementStat } from '../stats';
 
 const INITIAL_CALLER = {
   module: '',
@@ -11,6 +12,7 @@ const INITIAL_CALLER = {
 const optionsKey = '@options';
 
 const describe = (fn = noop, caller = INITIAL_CALLER, input = {}, fileStubs) => {
+  incrementStat('describes');
   const src = caller.module.replace(test, '').replace('.spec.js', '.js');
   const executable = typeof input === 'function' ? input : () => {
     const { stubs } = input[optionsKey] || {};
