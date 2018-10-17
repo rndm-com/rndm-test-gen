@@ -1,6 +1,6 @@
 {
   "name": "@rndm/test-gen",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "src/index.js",
   "author": "RNDM",
   "license": "Apache-2.0",
@@ -54,7 +54,9 @@
     "nyc": "^11.3.0",
     "proxyquire": "^1.8.0",
     "sinon": "^4.1.2",
-    "sinon-chai": "^2.14.0"
+    "sinon-chai": "^2.14.0",
+    "systeminformation": "^3.45.7",
+    "uuid": "^3.3.2"
   },
   "nyc": {
     "lines": 70,

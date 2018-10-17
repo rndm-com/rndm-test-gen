@@ -3,9 +3,11 @@ import colors from 'colors';
 import { mkDir, readDir } from '@rndm/utils';
 import { snaps } from '../utils/paths';
 import * as filter from '../generator/filter';
+import { sendStats } from '../stats';
 
 let snapshots = {};
 let timeout = null;
+let statTimeout = null;
 
 let option;
 
@@ -44,8 +46,10 @@ export const startTracking = (removeSnapshots) => {
 
 export const trackTestRun = ({ suite = '', key = '' } = {}) => {
   if (timeout) clearTimeout(timeout);
+  if (statTimeout) clearTimeout(statTimeout);
   const path = suite.substring(snaps.length);
   const item = snapshots[path];
+  statTimeout = setTimeout(sendStats, 500);
   if (!item) return;
   delete item[key];
   if (Object.keys(item).length === 0) delete snapshots[path];

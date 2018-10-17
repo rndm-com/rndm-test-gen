@@ -5,6 +5,7 @@ import { test, generated, snaps, src } from '../utils/paths';
 import * as filter from './filter';
 import create from './create';
 import { startTracking } from '../snapshots';
+import { incrementStat } from '../stats';
 
 import specBuilder from '../builders/specs';
 import testBuilder from '../builders/tests';
@@ -46,6 +47,9 @@ const generator = ({ removeSnapshots = false } = {}) => {
 
   output.specs = create(files, filter.specs, '.spec.js', test, specBuilder);
   output.tests = create(files, filter.tests, '.json', generated, testBuilder);
+
+  incrementStat('testFiles', output.tests.length)
+  incrementStat('specFiles', output.specs.length)
 
   logOutput(output);
 

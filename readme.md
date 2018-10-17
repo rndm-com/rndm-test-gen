@@ -113,7 +113,23 @@ This is the directory in which you will have your unit tests. It is relative to 
 ```json
 "directory": "__tests__/unit"
 ```
- 
+
+#### sendStats (IMPORTANT!!)
+
+In order to improve our product, we send certain anonymous statatistics such as usage reports and the version of @rndm/test-gen you are currently using. These stats help us to understand our users better, build out awesome features for the future, and are completely non-intrusive and anonymous.
+
+By default, this inclusion is set as an 'opt-out' feature, but it is extremely simple to opt out inside your options should you prefer.
+
+**Type**: Boolean
+
+**Default Value**: true
+
+**Example**:
+
+```json
+"sendStats": false
+ ```
+
 #### ignoreNodes
  
 RNDM Test Generator reviews and requires modules as it needs to evaluate the output that should be resolved inside snapshots. When it does this, it can sometimes stub modules that it doesn't actually want to. Examples of this could be lodash or react, which provide important functionality for your app. Therefore this configuration option allows you to define nodes that you really want to run when testing so that you get the output you expect. By default The configuration ignores the following nodes:
@@ -156,6 +172,7 @@ Out of the box, RNDM Test Generator will try to test every JavaScript file under
   "src/index.js"
 ]
 ```
+
 This will test all JavaScript files in src/app and all sub directories, as well as index.js in the src folder, but ignore all other folders and files.
  
 #### exclude
@@ -204,9 +221,11 @@ If you are looking to include RNDM Test Generator as a library inside your proje
 **Default Value**: false
 
 **Example**:
+
 ```json
 "relative": true
  ```
+
 ### Run Options
  
 Run options are those options provided at run-time to the test suite.
@@ -422,6 +441,7 @@ A standard test either without the path option or the path option set to "defaul
     {
       "path": "example"
     }
+  ]
 }
 ```
 
@@ -462,6 +482,7 @@ You are able to overwrite the automated stubs by providing values to a global pa
 It should be noted here that it is possible from file leve to test level stubs to also stub out paths to relative imported files as well as imported node modules, i.e.:
 
 **Node Module**: 'my-module';
+
 **Relative File**: './my-module'; (the relativity is based on the relativity to the source file and not the test file)
 
 **Example**
@@ -670,7 +691,7 @@ const WelcomeMessage = ({ style = {} } = {}) => (
 );
  
 export default WelcomeMessage;
-```javascript
+```
  
 // Test File: WelcomeMessage.json
 

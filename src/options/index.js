@@ -2,8 +2,12 @@ import { merge } from 'lodash';
 import rc from './getRC';
 import json from './getPackage';
 
+const defaults = {
+  sendStats: true,
+};
+
 const getOptions = () => (
-  merge({}, rc(), json())
+  merge({}, defaults, rc(), json())
 );
 
 export default getOptions();
