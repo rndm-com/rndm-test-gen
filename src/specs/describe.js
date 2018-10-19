@@ -37,6 +37,7 @@ const Describe = (input, stubs) => {
 };
 
 Describe.only = (input, stubs) => {
+  global.hasSetOnly = true;
   describe(global.describe.only, caller(), input, stubs);
 };
 

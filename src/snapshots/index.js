@@ -13,7 +13,7 @@ let option;
 
 export const removeRedundant = () => {
   const keys = Object.keys(snapshots);
-  if (keys.length > 0) {
+  if (keys.length > 0 && !global.hasSetOnly) {
     const left = keys.reduce((o, i) => (o + Object.keys(snapshots[i]).length), 0);
     if (option === 'unused') {
       keys.forEach(key => {

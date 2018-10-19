@@ -42,6 +42,7 @@ const It = (...args) => {
 };
 
 It.only = (...args) => {
+  global.hasSetOnly = true;
   it(global.it.only, ...args);
 };
 

@@ -7,15 +7,19 @@ import options from '../options';
 
 const stats = {};
 
+const dir = `${process.cwd()}/node_modules/@rndm/test-gen/src/stats/platform.json`;
+
 const getID = () => {
-  const dir = `${process.cwd()}/node_modules/@rndm/test-gen/src/stats/platform.json`;
+  const created = new Date();
   if (!fs.existsSync(dir)) {
     const id = uuid();
-    fs.writeFile(dir, JSON.stringify({id}));
-    return id
+    const output = { id, created };
+    fs.writeFile(dir, JSON.stringify(output));
+    return output
   }
-  const { id } = require(dir);
-  return id;
+  const output = require(dir);
+  if (!output.created) fs.writeFile(dir, JSON.stringify({ ...output, created }));
+  return output;
 };
 
 const getVersion = () => {
@@ -27,10 +31,11 @@ const send = (path, body, method = 'PATCH') => {
   const id = getID();
   const rtgVersion = getVersion();
   const node = process.version;
+  const now = new Date();
   request({
     method,
-    url: `https://rndm-com.firebaseio.com/stats/rndm-test-gen/stats/${path}/${id}.json`,
-    body: JSON.stringify({ ...body, node, rtgVersion }),
+    url: `https://rndm-com.firebaseio.com/stats/rndm-test-gen/stats/${path}/${id.id}.json`,
+    body: JSON.stringify({ ...body, node, rtgVersion, created: path === 'platform' ? id.created : now, updated: now }),
   }, () =>{});
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "@rndm/test-gen",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "main": "src/index.js",
   "author": "RNDM",
   "license": "Apache-2.0",

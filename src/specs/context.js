@@ -21,6 +21,7 @@ const Context = (...args) => {
 };
 
 Context.only = (...args) => {
+  global.hasSetOnly = true;
   context(global.context.only, ...args);
 };
 
