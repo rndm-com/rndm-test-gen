@@ -1,0 +1,11 @@
+{
+  "generate.default is expected to.matchSnapshot": {},
+  "describe.default is expected to.matchSnapshot": {},
+  "context.default is expected to.matchSnapshot": {},
+  "it.default is expected to.matchSnapshot": {},
+  "expect.default is expected to.matchSnapshot": {},
+  "proxyquire.default is expected to.matchSnapshot": {
+    "value": {}
+  },
+  ";.default is expected to.matchSnapshot": {}
+}

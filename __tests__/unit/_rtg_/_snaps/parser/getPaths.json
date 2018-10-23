@@ -1,5 +1,7 @@
 {
   "default.default with [] is expected to.matchSnapshot": {
-    "type": "undefined"
+    "value": {
+      "type": "undefined"
+    }
   }
 }

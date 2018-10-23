@@ -1,24 +1,40 @@
 {
-  "splitPath.default with [] is expected to.matchSnapshot": "",
+  "splitPath.default with [] is expected to.matchSnapshot": {
+    "value": ""
+  },
   "preES6Export.default with [] is expected to.matchSnapshot": {
-    "default": {
-      "type": ""
+    "value": {
+      "default": {
+        "type": ""
+      }
     }
   },
   "defaultExport.default with [] is expected to.matchSnapshot": {
-    "default": {
-      "type": ""
+    "value": {
+      "default": {
+        "type": ""
+      }
     }
   },
   "constExport.default with [] is expected to.matchSnapshot": {
-    "": {
-      "type": ""
+    "value": {
+      "": {
+        "type": ""
+      }
     }
   },
   "functionExport.default with [] is expected to.matchSnapshot": {
-    "": {}
+    "value": {
+      "": {}
+    }
   },
-  "structuredExport.default with [] is expected to.matchSnapshot": {},
-  "postES6Export.default with [] is expected to.matchSnapshot": {},
-  "default.default with [] is expected to.matchSnapshot": {}
+  "structuredExport.default with [] is expected to.matchSnapshot": {
+    "value": {}
+  },
+  "postES6Export.default with [] is expected to.matchSnapshot": {
+    "value": {}
+  },
+  "default.default with [] is expected to.matchSnapshot": {
+    "value": {}
+  }
 }

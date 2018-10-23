@@ -1,3 +1,5 @@
 {
-  "default.default with [] is expected to.matchSnapshot": "\nimport generated from '';\nconst tests = generated;\ndescribe(tests);\n"
+  "default.default with [] is expected to.matchSnapshot": {
+    "value": "\nimport generated from '';\nconst tests = generated;\ndescribe(tests);\n"
+  }
 }

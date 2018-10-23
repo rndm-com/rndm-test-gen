@@ -1,1 +1,37 @@
-{}
+{
+  "generate": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "describe": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "context": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "it": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "expect": [
+    {
+      "returnDefault": false
+    }
+  ],
+  "proxyquire": [
+    {
+      "returnDefault": false
+    }
+  ],
+  ";": [
+    {
+      "returnDefault": false
+    }
+  ]
+}

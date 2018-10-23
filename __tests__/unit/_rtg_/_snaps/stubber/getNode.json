@@ -1,3 +1,5 @@
 {
-  "default.default with [] is expected to.matchSnapshot": "/node_modules/undefined/undefined"
+  "default.default with [] is expected to.matchSnapshot": {
+    "value": "/node_modules/undefined/undefined"
+  }
 }

@@ -1,8 +1,10 @@
 {
   "default.default is expected to.matchSnapshot": {
-    "react-native": {},
-    "react-redux": {
-      "Provider": "Provider"
+    "value": {
+      "react-native": {},
+      "react-redux": {
+        "Provider": "Provider"
+      }
     }
   }
 }

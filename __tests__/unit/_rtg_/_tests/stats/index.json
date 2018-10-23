@@ -1,0 +1,19 @@
+{
+  "incrementStat": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "sendStats": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
+  "stats": [
+    {
+      "returnDefault": false
+    }
+  ]
+}

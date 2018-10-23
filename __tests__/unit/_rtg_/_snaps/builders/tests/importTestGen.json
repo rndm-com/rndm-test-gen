@@ -1,3 +1,5 @@
 {
-  "default.default with [] is expected to.matchSnapshot": "import { describe } from 'rndm-test-gen';"
+  "default.default with [] is expected to.matchSnapshot": {
+    "value": "import { describe } from '@rndm/test-gen';"
+  }
 }

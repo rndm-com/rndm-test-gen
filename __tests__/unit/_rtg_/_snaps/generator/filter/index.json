@@ -1,5 +1,11 @@
 {
-  "src.default with [] is expected to.matchSnapshot": false,
-  "specs.default with [] is expected to.matchSnapshot": false,
-  "tests.default with [] is expected to.matchSnapshot": false
+  "src.default with [] is expected to.matchSnapshot": {
+    "value": false
+  },
+  "specs.default with [] is expected to.matchSnapshot": {
+    "value": false
+  },
+  "tests.default with [] is expected to.matchSnapshot": {
+    "value": false
+  }
 }

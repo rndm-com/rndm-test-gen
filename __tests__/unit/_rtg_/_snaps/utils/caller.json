@@ -1,8 +1,10 @@
 {
   "default.default with [] is expected to.matchSnapshot": {
-    "method": "caller",
-    "module": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/src/utils/caller.js",
-    "line": "7",
-    "column": "9"
+    "value": {
+      "method": "caller",
+      "module": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/src/utils/caller.js",
+      "line": "7",
+      "column": "9"
+    }
   }
 }

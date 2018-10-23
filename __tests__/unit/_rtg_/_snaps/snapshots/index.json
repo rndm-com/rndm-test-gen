@@ -1,1 +1,5 @@
-{}
+{
+  "removeRedundant.default with [] is expected to.matchSnapshot": {},
+  "startTracking.default with [] is expected to.matchSnapshot": {},
+  "trackTestRun.default with [] is expected to.matchSnapshot": {}
+}

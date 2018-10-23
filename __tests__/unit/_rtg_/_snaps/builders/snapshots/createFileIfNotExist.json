@@ -1,4 +1,9 @@
 {
-  "createNewSnapshot.default with [] is expected to.matchSnapshot": {},
-  "default.default with [] is expected to.matchSnapshot": {}
+  "createFile.default with [] is expected to.matchSnapshot": {},
+  "createNewSnapshot.default with [] is expected to.matchSnapshot": {
+    "value": {}
+  },
+  "default.default with [] is expected to.matchSnapshot": {
+    "value": {}
+  }
 }

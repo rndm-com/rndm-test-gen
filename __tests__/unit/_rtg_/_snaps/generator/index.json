@@ -1,5 +1,7 @@
 {
   "default.default with [] is expected to.matchSnapshot": {
-    "specs": []
+    "value": {
+      "specs": []
+    }
   }
 }

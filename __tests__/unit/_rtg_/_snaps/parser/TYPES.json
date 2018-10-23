@@ -1,7 +1,9 @@
 {
   "default.default is expected to.matchSnapshot": {
-    "CLASS": "class",
-    "FUNCTION": "function",
-    "STATIC": "other"
+    "value": {
+      "CLASS": "class",
+      "FUNCTION": "function",
+      "STATIC": "other"
+    }
   }
 }

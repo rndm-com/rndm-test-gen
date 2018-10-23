@@ -1,8 +1,20 @@
 {
-  "project.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen",
-  "src.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/src",
-  "base.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit",
-  "test.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/src",
-  "snaps.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/_rtg_/_snaps",
-  "generated.default is expected to.matchSnapshot": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/_rtg_/_tests"
+  "project.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen"
+  },
+  "src.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/src"
+  },
+  "base.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit"
+  },
+  "test.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/src"
+  },
+  "snaps.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/_rtg_/_snaps"
+  },
+  "generated.default is expected to.matchSnapshot": {
+    "value": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/__tests__/unit/_rtg_/_tests"
+  }
 }

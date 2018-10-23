@@ -1,0 +1,7 @@
+{
+  "incrementStat.default with [] is expected to.matchSnapshot": {},
+  "sendStats.default with [] is expected to.matchSnapshot": {},
+  "stats.default is expected to.matchSnapshot": {
+    "value": {}
+  }
+}

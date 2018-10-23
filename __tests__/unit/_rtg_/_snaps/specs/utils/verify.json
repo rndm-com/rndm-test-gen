@@ -1,7 +1,3 @@
 {
-  "default.default with [] is expected to.matchSnapshot": {
-    "__flags": {
-      "object": {}
-    }
-  }
+  "default.default with [] is expected to.matchSnapshot": {}
 }
