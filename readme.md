@@ -467,10 +467,164 @@ Should a the expected option above require an actual expectation, this can be pr
  
 An array of arguments that can be passed into either a function or a class when executing.
  
+**Type**: Array<Any> | ARGObject
+
+**Default Value**: undefined
+
+##### Arg Array
+
+When creating an arguments array you can think of these as each of the items that will be passed into a function or the construction of a class.
+
+**Example: Simple**
+
+```javascript
+function add(a, b) {
+    return a + b
+}
+
+export default add
+```
+
+The function above allows us to add two numbers together. In this instance, the args are the two paramters we are passing across. So we could write a test as below:
+
+```json
+{
+    "default": [
+        {
+            "args: [
+                1,
+                2
+            ]
+        }
+    ]
+}
+```
+
+This would create a snapshot that would create the test expectation with the output of 3.
+
+**Example: Advanced**
+
+Sometimes, however, we have more complex funcitons that might take something that is not able to be serialised such as another function. In this instance, it makes sense to promote the test out of the JSON and into the JavaScript .spec.js file.
+
+```javascript
+function curryMathFunctionThenAdd(fn, a, b) {
+    return fn(a, b) + a + b
+}
+
+export default curryMathFunctionThenAdd;
+```
+
+The above function takes another argument here that will also do something with the arguments before adding them together with that input. So here we will want to pass our own function in to test it.
+
+```javascript
+
+const tests = {
+    default: [
+        {
+            args: [
+                (a, b) => (a * b),
+                1,
+                3,
+            ],
+        },
+    ],
+};
+
+describe(tests);
+
+```
+
+The output of this will be a snapshot that will take the arguments of 1 and 3, pass them into the first function argument and multiply them to give the output of 3, then add them together to create a value expectation of 7.
+
+##### ARGObject
+
+Since there can be many sub-levels of execution, it is also possible to write an object style approach to arguments. The shape of the expected object is:
+
+###### current
 **Type**: Array<Any>
 
 **Default Value**: undefined
- 
+
+This is the same as the Arg Array above
+
+###### stubs
+**Type**: Object
+
+**Default Value**: undefined
+
+This will set values on the instance created for the next level of execution. We will cover this in depth in the next section.
+
+###### next
+
+**Type**: NextObject
+
+**Default Value**: undefined
+
+This is for the next level of execution. and contains two properties:
+
+###### path
+
+**Type**: String
+
+**Default Value**: "default"
+
+The path of the item you would like to test.
+
+###### args
+
+**Type**: Array<Any> | ARGObject
+
+**Default Value**: undefined
+
+See above.
+
+**Example**
+
+```javascript
+class MyClass {
+    shouldAdd = false
+
+    constructor(c) {
+        this.c = c
+    }
+
+    mathsFunction = (a, b) => this.shouldAdd ? a + b + c : a - b - c
+}
+
+export default MyClass;
+
+```
+
+In the code above, we have a class containing two properties, one set by the constructor and one statically set at teh time of construction. it also contains the function we want to test called 'mathsFunction'. The purpropse of ths function is to add the input and the value called c together if the shouldAdd value is true or subtract if it is false.
+
+```json
+{
+    "default": [
+        {
+            "args: {
+                "current": [
+                    2
+                ]
+            },
+            "stubs": {
+                "shouldAdd": true
+            },
+            "next": {
+                "path": "mathsFunction",
+                "args": [
+                    4,
+                    6
+                ]
+            }
+        }
+    ]
+}
+```
+
+The test above we take the first arguments contained in the current block and pass them into the class constructor. It will then set the shouldAdd to true before executing the next path item "mathsFunction" with the arguments of 4 and 6.
+
+###### current
+
 #### Options: stubs
  
 An Object defined the stubbed classes you want to provide and the output you want to return for the stubbed properties. Stubs are available at each of the main levels of the tests. These can be set as below:
@@ -479,7 +633,7 @@ An Object defined the stubbed classes you want to provide and the output you wan
 
 You are able to overwrite the automated stubs by providing values to a global parameter called stubs. In order to do this cleanly, it is a good idea to create a file or suite of files for your stubs then import this into your setup file.
 
-It should be noted here that it is possible from file leve to test level stubs to also stub out paths to relative imported files as well as imported node modules, i.e.:
+It should be noted here that it is possible from file level to test level stubs to also stub out paths to relative imported files as well as imported node modules, i.e.:
 
 **Node Module**: 'my-module';
 
@@ -584,6 +738,71 @@ const tests = {
 describe(tests);
 
 ```
+
+##### Execution Stubs
+
+Execution stubs are stubs that can be passed in to mock values on a test subject. This is useful for when you need a property to be set different to the default value within the previous created object when creating testing the next level.
+
+```javascript
+class MyComponent extends Component {
+    g = "ff"
+
+    constructor(props) {
+        super(props);
+
+        const { r, b } = props;
+
+        this.state = {
+            r,
+            b,
+        }
+    }
+
+    render() {
+        const { r, b } = this.state;
+        const { g } = this;
+        return (
+            <View style={{
+                width: 50,
+                height: 50,
+                backgroundColor: `#${r}${g}${b}` }}
+            />
+        );
+    }
+};
+
+export default MyComponent;
+
+```
+
+
+In the above class we have a React Component. This has a render function that we would like to test with different values for the state object including the red and blue values of our background color. However, we also want to test our non state controlled green property.
+
+```json
+{
+    "default": [
+        {
+            "args: {
+                "current": [
+                    {
+                        "r": "ff",
+                        "b": "ff"
+                    }
+                ]
+            },
+            "stubs": {
+                "g": "00"
+            },
+            "next": {
+                "path": "render",
+                "args": []
+            }
+        }
+    ]
+}
+```
+
+The test will test the React Component as a snapshot and has allowed us to ensure that we are using this.g property as part of our backgroundViewColor.
 
 ##### <span style="color:red">IMPORTANT</span>
 
