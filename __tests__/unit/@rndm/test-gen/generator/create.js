@@ -1,4 +1,5 @@
 import fs from 'fs';
+import Path from 'path';
 import { identity } from 'lodash';
 import { mkDir, readDir } from '@rndm/utils';
 
@@ -12,7 +13,7 @@ const create = (files = [], filter = identity, replacer = '', directory = '', bu
 
   return failed.map(file => {
     const contents = builder(file);
-    const path = file.split('/').reverse().slice(1).reverse().join('/');
+    const path = file.split(Path.sep).reverse().slice(1).reverse().join(Path.sep);
     mkDir(path, directory);
     fs.writeFileSync(`${directory}${file}${replacer}`, contents);
     return file;

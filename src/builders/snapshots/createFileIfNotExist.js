@@ -1,4 +1,5 @@
 import fs from 'fs';
+import Path from 'path';
 import colors from 'colors';
 import { decircular } from '@rndm/utils';
 import safe from '../../utils/safe';
@@ -28,7 +29,7 @@ export const createNewSnapshot = ({ data = {}, key, value } = {}) => {
 
 const createFileIfNotExist = (path, file, input) => {
   if (!path || !file || !input) return {};
-  const filePath = [path, file.replace('.js', '.json')].join('/');
+  const filePath = [path, file.replace('.js', '.json')].join(Path.sep);
   const { key, value } = input;
 
   trackTestRun({ suite: filePath, key });

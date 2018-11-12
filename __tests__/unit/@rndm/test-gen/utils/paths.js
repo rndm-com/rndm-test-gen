@@ -1,32 +1,31 @@
+import path from 'path';
 import options from '../options';
 
 export const project = process.cwd();
 
 const tg = '_rtg_';
 
-export const src = [
-  project,
-  'src',
-].join('/');
 
-export const base = [
-  project,
-  options.directory || '__tests__/unit',
-].join('/');
+export const src = path.join(project, 'src');
 
-export const test = [
+export const base = path.join(
+  project,
+  options.directory || path.join('__tests__', 'unit'),
+);
+
+export const test = path.join(
   base,
   'src',
-].join('/');
+);
 
-export const snaps = [
+export const snaps = path.join(
   base,
   tg,
   '_snaps',
-].join('/');
+);
 
-export const generated = [
+export const generated = path.join(
   base,
   tg,
   '_tests',
-].join('/');
+);
