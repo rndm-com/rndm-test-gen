@@ -12,7 +12,7 @@ So with one simple command (npm run cover), you can go from a position of no tes
 
 RNDM Test Generator has the following dev dependencies:
 
-- babel-node-modules
+- @rndm/babel-node-modules
 - chai
 - chai-as-promised
 - mocha
@@ -59,7 +59,7 @@ This file is the options you will want to pass across to the mocha test runner. 
 The options we will include are as below:
 
 ```
---require babel-register
+--require @babel/register
 --reporter spec
 --recursive
 --timeout 10000
@@ -73,7 +73,7 @@ Copy and paste these into the mocha.opts file you created.
 This file allows us to make use of Babel to polyfill the @rndm/test-gen on the run (as it is ignored by the babel transpiler by default). In this file, simply add the one line as below:
 
 ```javascript
-require('babel-node-modules')(['@rndm/test-gen']);
+require('@rndm/babel-node-modules')(['@rndm/test-gen']);
 ```
 
 #### index.js
