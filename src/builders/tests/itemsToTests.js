@@ -5,8 +5,8 @@ const itemsToTests = ({ statics = {}, prototypes = {}, ...test } = {}, returnDef
   return (
     flatten([
       itemToTest({ ...test, returnDefault }),
-      ...Object.keys(statics).map(key => itemsToTests({ key, ...statics[key] }, returnDefault)),
-      ...Object.keys(prototypes).map(key => itemsToTests({
+      ...Object.keys(statics).map(key => itemToTest({ key, ...statics[key] }, returnDefault)),
+      ...Object.keys(prototypes).map(key => itemToTest({
         ...prototypes[key],
         args: {
           current: [],

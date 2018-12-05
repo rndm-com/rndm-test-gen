@@ -1,6 +1,6 @@
 {
   "name": "@rndm/test-gen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "src/index.js",
   "author": "RNDM",
   "license": "Apache-2.0",
@@ -61,7 +61,7 @@
     "uuid": "^3.3.2"
   },
   "nyc": {
-    "lines": 70,
+    "lines": 60,
     "include": [
       "src/**/*.js"
     ],
@@ -71,7 +71,7 @@
       "options/index"
     ],
     "require": [
-      "babel-core/register"
+      "@babel/register"
     ],
     "all": true,
     "sourceMap": false,

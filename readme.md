@@ -500,7 +500,7 @@ The function above allows us to add two numbers together. In this instance, the 
 {
     "default": [
         {
-            "args: [
+            "args": [
                 1,
                 2
             ]
@@ -609,7 +609,7 @@ In the code above, we have a class containing two properties, one set by the con
 {
     "default": [
         {
-            "args: {
+            "args": {
                 "current": [
                     2
                 ]
@@ -790,7 +790,7 @@ In the above class we have a React Component. This has a render function that we
 {
     "default": [
         {
-            "args: {
+            "args": {
                 "current": [
                     {
                         "r": "ff",

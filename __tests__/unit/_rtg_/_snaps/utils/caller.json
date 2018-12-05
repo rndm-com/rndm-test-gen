@@ -1,7 +1,7 @@
 {
   "default.default with [] is expected to.matchSnapshot": {
     "value": {
-      "method": "caller",
+      "method": "captureStackTrace",
       "module": "/Users/paul.napier/Desktop/dev/mine/rndm/rndm-test-gen/src/utils/caller.js",
       "line": "7",
       "column": "9"

@@ -5,6 +5,12 @@
       "returnDefault": false
     }
   ],
+  "classProperties": [
+    {
+      "args": [],
+      "returnDefault": false
+    }
+  ],
   "preES6Export": [
     {
       "args": [],

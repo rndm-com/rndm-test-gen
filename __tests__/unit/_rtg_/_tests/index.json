@@ -1,35 +1,35 @@
 {
   "generate": [
     {
+      "args": [],
       "returnDefault": false
     }
   ],
   "describe": [
     {
+      "args": [],
       "returnDefault": false
     }
   ],
   "context": [
     {
+      "args": [],
       "returnDefault": false
     }
   ],
   "it": [
     {
+      "args": [],
       "returnDefault": false
     }
   ],
   "expect": [
     {
+      "args": [],
       "returnDefault": false
     }
   ],
   "proxyquire": [
-    {
-      "returnDefault": false
-    }
-  ],
-  ";": [
     {
       "returnDefault": false
     }

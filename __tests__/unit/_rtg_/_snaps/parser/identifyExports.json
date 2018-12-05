@@ -36,5 +36,6 @@
   },
   "default.default with [] is expected to.matchSnapshot": {
     "value": {}
-  }
+  },
+  "classProperties.default with [] is expected to.matchSnapshot": {}
 }

@@ -1,11 +1,14 @@
 {
-  "generate.default is expected to.matchSnapshot": {},
-  "describe.default is expected to.matchSnapshot": {},
-  "context.default is expected to.matchSnapshot": {},
-  "it.default is expected to.matchSnapshot": {},
-  "expect.default is expected to.matchSnapshot": {},
+  "generate.default with [] is expected to.matchSnapshot": {},
+  "describe.default with [] is expected to.matchSnapshot": {},
+  "context.default with [] is expected to.matchSnapshot": {},
+  "it.default with [] is expected to.matchSnapshot": {},
+  "expect.default with [] is expected to.matchSnapshot": {
+    "value": {
+      "__flags": {}
+    }
+  },
   "proxyquire.default is expected to.matchSnapshot": {
     "value": {}
-  },
-  ";.default is expected to.matchSnapshot": {}
+  }
 }
