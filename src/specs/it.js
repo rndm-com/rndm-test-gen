@@ -16,6 +16,7 @@ const it = (fn = noop, {
     args,
     stubs = {},
     returnDefault,
+    stringifyFunctions,
     it,
     description: customDescription,
   } = {},
@@ -24,7 +25,7 @@ const it = (fn = noop, {
 } = {}) => {
   incrementStat('its');
   const customStubs = merge({}, contextStubs, stubs);
-  const description = customDescription || describer({ path: [key, path].filter(Boolean).join('.'), expected, expectation, args, stubs: customStubs });
+  const description = customDescription || describer({ path: [key, path].filter(Boolean).join('.'), expected, expectation, args, stubs: customStubs, stringifyFunctions });
 
   const executable = it || (() => {
     const importedStubs = stubber(src);

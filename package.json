@@ -1,6 +1,6 @@
 {
   "name": "@rndm/test-gen",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "src/index.js",
   "author": "RNDM",
   "license": "Apache-2.0",
@@ -22,7 +22,7 @@
     "fs-extra": "^6.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "@rndm/utils": "0.1.0",
+    "@rndm/utils": "^0.1.0",
     "@rndm/babel-node-modules": "^0.1.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",

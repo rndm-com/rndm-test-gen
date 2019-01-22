@@ -885,6 +885,14 @@ Used when you want to differentiate between exports in the file (should a file c
 
 **Default Value**: false
 
+#### Options: stringifyFuncitons
+
+USed when you require the functions to be included in the key for the snapshots. This is useful for whenever you have multiple dynamic stubs which otherwise would be missed by the JSON stringification.
+
+**Type**: Boolean
+
+**Default Value**: false
+
 #### Options: it
 
 An optional way of passing in a standard it function test.
