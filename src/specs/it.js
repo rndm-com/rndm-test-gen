@@ -19,6 +19,7 @@ const it = (fn = noop, {
     stringifyFunctions,
     it,
     description: customDescription,
+    identifiers
   } = {},
   contextStubs = {},
   src,
@@ -32,7 +33,7 @@ const it = (fn = noop, {
     const fullStubs = merge({}, importedStubs, global.stubs, customStubs);
     const sut = stub({ from: src, stubs: fullStubs, returnDefault });
     const output = getOutput({ sut: key === 'default' ? sut : sut[key], args, path });
-    verify({ src, output, expected, expectation, description });
+    verify({ src, output, expected, expectation, description, identifiers });
   });
 
   execute(fn, [description, executable]);

@@ -612,17 +612,17 @@ In the code above, we have a class containing two properties, one set by the con
             "args": {
                 "current": [
                     2
-                ]
+                ],
+                 "next": {
+                     "path": "mathsFunction",
+                     "args": [
+                         4,
+                         6
+                     ]
+                 }
             },
             "stubs": {
                 "shouldAdd": true
-            },
-            "next": {
-                "path": "mathsFunction",
-                "args": [
-                    4,
-                    6
-                ]
             }
         }
     ]
@@ -630,8 +630,6 @@ In the code above, we have a class containing two properties, one set by the con
 ```
 
 The test above we take the first arguments contained in the current block and pass them into the class constructor. It will then set the shouldAdd to true before executing the next path item "mathsFunction" with the arguments of 4 and 6.
-
-###### current
 
 #### Options: stubs
 
@@ -885,7 +883,7 @@ Used when you want to differentiate between exports in the file (should a file c
 
 **Default Value**: false
 
-#### Options: stringifyFuncitons
+#### Options: stringifyFunctions
 
 USed when you require the functions to be included in the key for the snapshots. This is useful for whenever you have multiple dynamic stubs which otherwise would be missed by the JSON stringification.
 
