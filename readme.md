@@ -907,6 +907,14 @@ An optional description to override the automated description.
 
 **Default Value**: false
 
+#### Options: identifiers
+
+An object with key values to be included in the snapshot. This can be used for assisting with identification such as titles, ids, or other descriptions.
+
+**Type**: Object
+
+**Default Value**: {}
+
 ### Snapshots
 
 Snapshots are a powerful tool for generating the output of a test. On initial execution, the output is rendered into a JSON file under the description key. Upon further executions, you are able to compare the test results against this initial baseline and make decisions as to whether you want to edit the output, the test or the original source file. We opted to use JSON as the file type, since it is simple to use with the context of JavaScript.
