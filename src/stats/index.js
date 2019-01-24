@@ -32,11 +32,11 @@ const send = (path, body, method = 'PATCH') => {
   const rtgVersion = getVersion();
   const node = process.version;
   const now = new Date();
-  request({
+  return request({
     method,
     url: `https://rndm-com.firebaseio.com/stats/rndm-test-gen/stats/${path}/${id.id}.json`,
     body: JSON.stringify({ ...body, node, rtgVersion, created: path === 'platform' ? id.created : now, updated: now }),
-  }, () =>{});
+  }, () =>{}).catch(console.log);
 };
 
 const incrementStat = (key, increment = 1) => {
@@ -45,7 +45,7 @@ const incrementStat = (key, increment = 1) => {
 };
 
 const sendPlatform = () => {
-  si.osInfo().then(data => send('platform', data)).catch(() => {})
+  si.osInfo().then(data => send('platform', data)).catch(console.log)
 };
 
 const sendStats = () => {
