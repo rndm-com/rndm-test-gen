@@ -1,4 +1,4 @@
-# RNDM Test Generator
+# [RNDM](https://www.rndm.com) Test Generator
 
 ## About
 
