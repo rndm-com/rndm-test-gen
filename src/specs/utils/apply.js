@@ -1,6 +1,6 @@
-const apply = (Subject = () => ({}), args = []) => {
+const apply = (Subject = () => ({}), args = [], context) => {
   try {
-    return Subject(...args)
+    return Subject.bind(context)(...args);
   } catch (_) {
     return new Subject(...args);
   }

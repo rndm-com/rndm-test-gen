@@ -579,6 +579,55 @@ This is for the next level of execution. and contains two properties:
 
 The path of the item you would like to test.
 
+###### spy
+
+**Type**: String
+
+**Default Value**: undefined
+
+If you would prefer to test a context path, rather than the value output, you can do this using 'spy'. This will override the 'expectation' property.
+
+**Example**:
+
+Subject File
+
+```javascript
+class MyClass extends Component {
+    state = {
+        mounted: false
+    };
+
+    componentDidMount() {
+        this.setState({ mounted: true });
+    }
+}
+
+export default MyClass;
+```
+
+Test File
+
+```json
+{
+    "default": [
+        {
+            "spy": "state",
+            "args": {
+                "current": [
+                    {}
+                ],
+                 "next": {
+                     "path": "componentDidMount",
+                     "args": []
+                 }
+            }
+        }
+    ]
+}
+```
+
+The above code, will spy in the context state property, rather than the output of 'componentDidMount()', which would be undefined.
+
 ###### args
 
 **Type**: Array(Any) | ARGObject

@@ -1,4 +1,4 @@
-import { noop, merge } from 'lodash';
+import { noop, merge, get } from 'lodash';
 import execute from './utils/execute';
 import describer from './utils/describer';
 import stub from './utils/stub';
@@ -11,6 +11,7 @@ const it = (fn = noop, {
   key,
   test: {
     path = 'default',
+    spy,
     expected = 'to.matchSnapshot',
     expectation,
     args,
@@ -32,7 +33,8 @@ const it = (fn = noop, {
     const importedStubs = stubber(src);
     const fullStubs = merge({}, importedStubs, global.stubs, customStubs);
     const sut = stub({ from: src, stubs: fullStubs, returnDefault });
-    const output = getOutput({ sut: key === 'default' ? sut : sut[key], args, path });
+    const { value, context } = getOutput({ sut: key === 'default' ? sut : sut[key], args, path });
+    const output = spy ? get(context, spy, null) : value;
     verify({ src, output, expected, expectation, description, identifiers });
   });
 
