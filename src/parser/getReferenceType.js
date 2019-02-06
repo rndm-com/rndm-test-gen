@@ -1,5 +1,6 @@
 import TYPES from './TYPES';
 import getGetters from './getGetters';
+import getClassType from './getClassType';
 
 const getReferenceType = (first = '', contents = '') => {
   const regex = `((const)|(class)|(function)) ${first} (.*)`;
@@ -11,7 +12,7 @@ const getReferenceType = (first = '', contents = '') => {
   if (getters) return getters;
 
   const reference = matches[0];
-  if (reference.includes('class ')) return TYPES.CLASS;
+  if (reference.includes('class ')) return getClassType(reference);
   if (reference.startsWith('function') || first.includes('(')) return TYPES.FUNCTION;
   const split = reference.split(' ').filter(Boolean).join(' ').split(' = ')[1];
   if (split[0] === '(') return TYPES.FUNCTION;

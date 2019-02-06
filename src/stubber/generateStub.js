@@ -1,12 +1,14 @@
 import { identity } from 'lodash';
 import createStub from './createStub';
+import TYPES from '../parser/TYPES';
 
 const generateStub = ({ type } = {}, name) => {
   switch (type) {
-    case 'function':
+    case TYPES.FUNCTION:
       return identity;
 
-    case 'class':
+    case TYPES.CLASS:
+    case TYPES.REACT_CLASS:
       return createStub(name);
 
     case 'object':

@@ -1,5 +1,6 @@
 import { flatten } from 'lodash';
 import itemToTest from './itemToTest';
+import TYPES from '../../parser/TYPES';
 
 const itemsToTests = ({ statics = {}, prototypes = {}, ...test } = {}, returnDefault) => {
   return (
@@ -9,10 +10,10 @@ const itemsToTests = ({ statics = {}, prototypes = {}, ...test } = {}, returnDef
       ...Object.keys(prototypes).map(key => itemToTest({
         ...prototypes[key],
         args: {
-          current: [],
+          current: test.type === TYPES.REACT_CLASS ? [{}] : [],
           next: {
             path: key,
-            args: ['class', 'function'].includes(prototypes[key].type) ? [] : undefined,
+            args: [TYPES.CLASS, TYPES.FUNCTION].includes(prototypes[key].type) ? [] : undefined,
           },
         },
       }, returnDefault)),

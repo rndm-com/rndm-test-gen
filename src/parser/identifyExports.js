@@ -42,7 +42,7 @@ export const defaultExport = (trimmed = '', contents = '') => {
   return {
     [key]: {
       type,
-      prototypes: (type === TYPES.CLASS) ? classProperties(contents) : undefined,
+      prototypes: (([TYPES.CLASS, TYPES.REACT_CLASS].includes(type))) ? classProperties(contents) : undefined,
     },
   };
 };
@@ -53,7 +53,7 @@ export const constExport = (trimmed = '', contents = '') => {
   return {
     [key]: {
       type,
-      prototypes: (type === TYPES.CLASS) ? classProperties(contents) : undefined,
+      prototypes: (([TYPES.CLASS, TYPES.REACT_CLASS].includes(type))) ? classProperties(contents) : undefined,
     },
   };
 };
